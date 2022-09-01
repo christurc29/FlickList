@@ -1,44 +1,36 @@
-# Introduction
+# FlickList &#127871;&#127909;	
+An open source Movie recommendation web application.
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+# Roadmap
+- [ ] Each customer can log in to a unique account.
+- [ ] Customers can setup accounts.
+- [ ] A customer can enter in recommended movies
+- [ ] A customer can filter movies by genre
+- [ ] A customer can hit a button to be suggesed a random movie to watch
+- [ ] A customer can submit a move, edit a movie submission, and delete a movie
 
----
+# Contributing
+Always telling people you'll definitely check out a movie they suggest, but then forgetting about it? Sitting on Netflix or Hulu scrolling endlessly for a movie even though you get so many recommendations? We'd love to have you contribute to this project!
+<br>
+<br>
+Please create an issue for any changes you would like to see under the "Issues" tab above.
+Fork the repo, clone it to your machine, create a new branch for your changes, make your changes, push the changes to your fork, then submit a pull request at which point we will review and follow up.
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+# Setup
+The following instructions assume you already have an IDE (We recommend Visual Studio Code!) installed on your computer and know your way around MongoDB Atlas.
 
----
+To get FlickList running on your local machine, you will need to do the following:
 
-# Objectives
-
-- It's a beginner level app created to understand how MVC concept and logins are added
-
----
-
-# Who is this for? 
-
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
-
----
-
-# Packages/Dependencies used 
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install` 
-
----
-
-# Things to add
-
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
-
+1. Clone the repo to your computer.
+2. Open a terminal in your IDE and cd to the directory in which you cloned the repo.
+3. Run "npm install". This will download all the node modules needed to run the software.
+4. Configure a .env file.
+    1. The format should look something like the following:
+        ```
+        PORT = 2121
+        DB_STRING = [MONGODB ATLAS STRING]
+        ```
+    2. The file should be saved in config/.env.
+5. In your IDE terminal, run "npm start".
+6. In a web browser, navigate to localhost:2121 (or whatever port you chose in your .env file).
 
