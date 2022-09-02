@@ -4,29 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FlickList</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1>Movies to Watch</h1>
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+              <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+              <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.genre %></span>
+              <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2><%= user.userName %> has <%= left %> movies left to watch.</h2>
 
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="text" placeholder="Enter Movie" name='todoItem'>
+        <input type="text" placeholder="Enter Movie Genre" name='movieGenre'>
         <input type="submit">
     </form>
+<br>
+      
+<form action="/todos/sortByGenre" method = 'GET'>
+  <label for="genres">Choose a movie:</label>
+  <select name="genres" id="genreID">
+    <option value="Action">Action</option>
+    <option value="Horror">Horror</option>
+    <option value="Romance">Romance</option>
+    <option value="Comedy">Comedy</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Sort">
+</form>
 
+
+      
     <a href="/logout">Logout</a>
 
+
+      
     <script src="js/main.js"></script>
 </body>
 </html>

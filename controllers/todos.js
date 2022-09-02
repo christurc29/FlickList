@@ -13,7 +13,7 @@ module.exports = {
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create({todo: req.body.todoItem, genre: req.body.movieGenre, completed: false, userId: req.user.id})
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){
@@ -51,5 +51,13 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
+    },
+  sortByGenre: async (req, res) => {
+      try{
+        await Todo.find({userId:req.user.id}).sort({genre: -1}).toArray()
+        res.redirect('/todos')
+      }catch(err){
+        console.log(err)
+      }
     }
 }    
