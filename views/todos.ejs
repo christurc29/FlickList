@@ -16,7 +16,7 @@
               <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.genre %></span>
               <span class='del'> Delete </span>
             </li>
-    <% }) %>    
+    <% }) %>
     </ul>
 
     <h2><%= user.userName %> has <%= left %> movies left to watch.</h2>
@@ -27,8 +27,20 @@
         <input type="submit">
     </form>
 <br>
-      
-<form action="/todos/sortByGenre" method = 'GET'>
+
+<form action="" method = ''>
+  <label for="sort">Sort movies by:</label>
+  <select name="sort" id="sortID">
+    <option value="oldest" disabled selected>Oldest</option>
+    <option value="newest" disabled>Newest</option>
+    <option value="title">Title</option>
+    <option value="genre">Genre</option>
+  </select>
+  <!-- <br><br> -->
+  <!-- <input type="submit" value="Sort"> -->
+</form>
+
+<!-- <form action="/todos/sortByGenre" method = 'GET'>
   <label for="genres">Choose a movie:</label>
   <select name="genres" id="genreID">
     <option value="Action">Action</option>
@@ -38,14 +50,14 @@
   </select>
   <br><br>
   <input type="submit" value="Sort">
-</form>
+</form> -->
 
 
-      
+
     <a href="/logout">Logout</a>
 
 
-      
+
     <script src="js/main.js"></script>
 </body>
 </html>
