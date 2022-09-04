@@ -12,6 +12,46 @@ body{
     font-family: 'Montserrat', sans-serif;
     
 }
+header, nav{
+    background-color: black;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    width:100%;
+    height:60px;
+}
+ul{
+    display:flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    align-items: center;
+    width:100%;
+    height:60px;
+    list-style:none;
+    text-align: center;
+    padding-right: 50px;
+}
+li{
+    text-decoration: none;
+    height:60px;
+    width:110px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+li:hover{
+  background-color: #BF1E47;   
+}
+li a{
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    margin
+    
+}
 .header{
     display: flex;
     flex-direction: row;
