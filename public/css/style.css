@@ -1,6 +1,150 @@
-h1{
-    color: red;
+*{
+    box-sizing: border-box;
+    margin:0;
 }
+body{
+    background-color: #282c34;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:flex-end;
+    width: 100%;
+    margin-top: 50px;
+
+}
+h1{
+    color:white;
+    display: inline-block;
+    font-size: 72px;
+    text-transform: uppercase;
+}
+img{
+    width:160px;
+    height:200px;
+}
+h2{
+    font-size:20px;
+    letter-spacing: 0.03em;
+    word-spacing: 0.05em;
+    /* font-weight: 800; */
+}
+#actions{
+    width:400px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+#actions  a{
+    color:white;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    width: 100%;
+}
+#actions > button{
+    width: 180px;
+}
+#actions > button:hover{
+    background-color: #F7CE5A;
+    color:black;
+    box-shadow: 0 0 10px 0 rgba(239, 239, 240, 0.2), 0 3px 3px 0 rgba(239, 239, 240, 0.24);
+
+}
+h3{
+    font-size: 30px;
+}
+form {
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+    color: #384047;
+    box-shadow: 0 0 20px 0 rgba(239, 239, 240, 0.2), 0 5px 5px 0 rgba(239, 239, 240, 0.24);
+  }
+  form h2{
+    text-align: center;
+    font: 30px 'Nunito', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  h1 {
+    margin: 0 0 30px 0;
+    text-align: center;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  textarea,
+  select {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 30px;
+  }
+  
+  
+  button {
+    padding: 19px 39px 18px 39px;
+    text-transform: uppercase;
+    color: #FFF;
+    background-color:#BF1E47;
+    font: 18px 'Nunito', sans-serif;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #BF1E47;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color: #8a97a0;
+    border: 1px solid #8a97a0;
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+  }
+  
+  label.light {
+    font-weight: 300;
+    display: inline;
+  }
+  
+  @media screen and (min-width: 480px) {
+  
+    form {
+      max-width: 480px;
+    }
+  
+  }
+
 .completed{
     text-decoration: line-through;
     color: gray;
