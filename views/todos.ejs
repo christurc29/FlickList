@@ -30,8 +30,8 @@
 <form action="" method = ''>
   <label for="sort">Sort movies by:</label>
   <select name="sort" id="sortID">
-    <option value="oldest" disabled selected>Oldest</option>
-    <option value="newest" disabled>Newest</option>
+    <option value="oldest" selected>Oldest</option>
+    <option value="newest">Newest</option>
     <option value="title">Title</option>
     <option value="genre">Genre</option>
   </select>
@@ -59,7 +59,7 @@
 </div>
 <ul>
   <% todos.forEach( el => { %>
-          <li class='todoItem' data-id='<%=el._id%>'>
+          <li class='todoItem' data-id='<%=el._id%>' data-createdat='<%=el.createdDate%>'>
             <span class='pointer details <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
             <span class='pointer details <%= el.completed === true ? 'completed' : 'not'%>'><%= el.genre %></span>
             <span class='pointer del'><i class="fa fa-trash-o" style="font-size:36px"></i></span>
