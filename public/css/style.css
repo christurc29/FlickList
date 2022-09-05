@@ -10,7 +10,7 @@ body{
     align-items: center;
     justify-content: center;
     font-family: 'Montserrat', sans-serif;
-    
+
 }
 header, nav{
     background-color: black;
@@ -42,7 +42,7 @@ li{
 
 }
 li:hover{
-  background-color: #BF1E47;   
+  background-color: #BF1E47;
 }
 li a{
     color:white;
@@ -118,12 +118,12 @@ form{
     text-transform: uppercase;
     font-weight: bold;
   }
-  
+
   h1 {
     margin: 0 0 30px 0;
     text-align: center;
   }
-  
+
   input[type="text"],
   input[type="password"],
   input[type="email"],
@@ -142,8 +142,8 @@ form{
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     margin-bottom: 30px;
   }
-  
-  
+
+
   button {
     padding: 19px 39px 18px 39px;
     text-transform: uppercase;
@@ -170,18 +170,18 @@ form{
     font-family: 'Nunito', sans-serif;
     text-transform: uppercase;
   }
-  
+
   label.light {
     font-weight: 300;
     display: inline;
   }
-  
+
   @media screen and (min-width: 480px) {
-  
+
     form {
       max-width: 480px;
     }
-  
+
   }
 
 .completed{
@@ -263,4 +263,8 @@ li span{
 .tableHeader{
   font-weight: bold;
   font-size:22px;
+}
+
+[hidden]{
+  display: none;
 }

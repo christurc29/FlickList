@@ -1,6 +1,7 @@
-document.addEventListener('DOMContentLoaded', maintainSortPreference)
+document.addEventListener('DOMContentLoaded', maintainListPreference)
 const sortSelector = document.querySelector('#sortID').addEventListener('change', displaySortedMovies)
-const logoutBtn = document.querySelector('#logout').addEventListener('click', removeSortPreference)
+const filterInput = document.querySelector('#filterID').addEventListener('input', filterListByGenre)
+const logoutBtn = document.querySelector('#logout').addEventListener('click', removeListPreference)
 
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
@@ -72,17 +73,20 @@ async function markIncomplete(){
     }
 }
 
-function maintainSortPreference() {
+function maintainListPreference() {
     console.log('New load, who dis?')
     const sortPreference = window.localStorage.getItem('sortPreference')
+    const filterPreference = window.localStorage.getItem('filterPreference')
 
     if (sortPreference) {
         const select = document.querySelector('#sortID')
-        select.addEventListener('change', () => {});
-        (() => {
-            select.value = sortPreference
-            select.dispatchEvent(new Event('change'))
-        })()
+        select.value = sortPreference
+        select.dispatchEvent(new Event('change'))
+    }
+    if (filterPreference) {
+        const input = document.querySelector('#filterID')
+        input.value = filterPreference
+        input.dispatchEvent(new Event('input'))
     }
 }
 
@@ -112,6 +116,19 @@ function displaySortedMovies(e) {
     movieList.appendChild(domFragment)
 }
 
-function removeSortPreference() {
-    localStorage.removeItem('sortPreference')
+function filterListByGenre(e) {
+    const filterText = e.target.value.toLowerCase().trim()
+    window.localStorage.setItem('filterPreference', filterText)
+    const movies = Array.from(document.querySelectorAll('.todoItem'))
+    movies
+        .map(movie => {
+            const genre = movie.children[1].innerText.toLowerCase()
+            genre.includes(filterText)
+                ? movie.removeAttribute('hidden')
+                : movie.setAttribute('hidden', '')
+        })
+}
+
+function removeListPreference() {
+    localStorage.clear()
 }
