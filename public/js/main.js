@@ -82,27 +82,26 @@ function maintainListPreference() {
 
 function displaySortedMovies(e) {
     const sortedBy = e.target.value
-    // set sort preference on local storage
     window.localStorage.setItem('sortPreference', sortedBy)
-    // create document fragment
     const domFragment = document.createDocumentFragment()
-    // access the list of movies / ul
     const movieList = document.querySelector('ul')
-    // access all the individual movies / li & store in an array
     const movies = Array.from(document.querySelectorAll('.todoItem'))
-
-    movies // sort li elems according to the target value / option selected
-      .sort((a, b) => {
-          // for now only two options implemented, title or genre
-          const option = sortedBy === 'title' ? 0 : 1
-          const c = a.children[option].innerText,
-                d = b.children[option].innerText
-          return c.localeCompare(d);
-      }) // add elements to fragment
-      .forEach(movie => {
-        domFragment.appendChild(movie)
-      })
-    // add fragment to movie list / ul
+    movies
+        .sort((a, b) => {
+            if (sortedBy === 'title' || sortedBy === 'genre') {
+                const option = sortedBy === 'title' ? 0 : 1
+                const c = a.children[option].innerText,
+                      d = b.children[option].innerText
+                return c.localeCompare(d);
+            } else {
+                return sortedBy === 'oldest'
+                    ? new Date(a.dataset.createdat) - new Date(b.dataset.createdat)
+                    : new Date(b.dataset.createdat) - new Date(a.dataset.createdat)
+            }
+        })
+        .forEach(movie => {
+            domFragment.appendChild(movie)
+        })
     movieList.appendChild(domFragment)
 }
 
