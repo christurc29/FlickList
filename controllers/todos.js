@@ -14,9 +14,17 @@ module.exports = {
     createTodo: async (req, res)=>{
         try{
 
-            await Todo.create({todo: req.body.todoItem, genre: req.body.movieGenre, completed: false, userId: req.user.id, createdDate: Date()})
-            console.log('Todo has been added!')
-            res.redirect('/todos')
+            const query = req.body.todoItem
+            await Todo.findOne({todo: query}, function(err, example){
+                if(err) console.log(err);
+                if (example) {
+                    console.log("This has already been saved.")
+                } else{
+                    Todo.create({todo: req.body.todoItem, genre: req.body.movieGenre, completed: false, userId: req.user.id, createdDate: Date()})
+                    console.log('Todo has been added!')
+                    res.redirect('/todos')
+                }
+            })
         }catch(err){
             console.log(err)
         }

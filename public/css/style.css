@@ -164,6 +164,11 @@ form{
     background-color: #8a97a0;
     border: 1px solid #8a97a0;
   }
+
+  .pointer {
+    cursor: pointer;
+  }
+
   label {
     display: block;
     margin-bottom: 8px;

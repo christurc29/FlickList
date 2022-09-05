@@ -132,3 +132,4 @@ function filterListByGenre(e) {
 function removeListPreference() {
     localStorage.clear()
 }
+
