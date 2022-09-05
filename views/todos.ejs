@@ -8,18 +8,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Movies to Watch</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-              <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-              <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.genre %></span>
-              <span class='del'> Delete </span>
-            </li>
-    <% }) %>
-    </ul>
+  <div class="header">
+    <h3 id="todoHeader">FlickList</h3>
+    <img id="todoIMG" src="./popcorn.png" alt="popcorn movie ticket">
+  </div>
+    <h4>Movies to Watch</h4>
 
-    <h2><%= user.userName %> has <%= left %> movies left to watch.</h2>
+    <h2><%= user.userName %> has <%= left %> movie(s) left to watch.</h2>
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Movie" name='todoItem'>
@@ -51,8 +46,20 @@
   <br><br>
   <input type="submit" value="Sort">
 </form> -->
-
-
+<div id="titles">
+  <span class="tableHeader">Title:</span>
+  <span class="tableHeader">Genre:</span>
+  <span class='del'></span>
+</div>
+<ul>
+  <% todos.forEach( el => { %>
+          <li class='todoItem' data-id='<%=el._id%>'>
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.genre %></span>
+            <span class='del'> Delete </span>
+          </li>
+  <% }) %>
+  </ul>
 
     <a id="logout" href="/logout">Logout</a>
 
