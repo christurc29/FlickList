@@ -1,8 +1,11 @@
+document.addEventListener('DOMContentLoaded', maintainSortPreference)
+
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
 
 const sortSelector = document.querySelector('#sortID').addEventListener('change', displaySortedMovies)
+const logoutBtn = document.querySelector('#logout').addEventListener('click', removeSortPreference)
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
@@ -71,9 +74,24 @@ async function markIncomplete(){
     }
 }
 
+function maintainSortPreference() {
+    console.log('New load, who dis?')
+    const sortPreference = window.localStorage.getItem('sortPreference')
+
+    if (sortPreference) {
+        const select = document.querySelector('#sortID')
+        select.addEventListener('change', () => {});
+        (() => {
+            select.value = sortPreference
+            select.dispatchEvent(new Event('change'))
+        })()
+    }
+}
+
 function displaySortedMovies(e) {
-    console.log(e.target.value);
     const sortedBy = e.target.value
+    // set sort preference on local storage
+    window.localStorage.setItem('sortPreference', sortedBy)
     // create document fragment
     const domFragment = document.createDocumentFragment()
     // access the list of movies / ul
@@ -94,4 +112,8 @@ function displaySortedMovies(e) {
       })
     // add fragment to movie list / ul
     movieList.appendChild(domFragment)
+}
+
+function removeSortPreference() {
+    localStorage.removeItem('sortPreference')
 }

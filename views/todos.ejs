@@ -23,7 +23,21 @@
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Movie" name='todoItem'>
-        <input type="text" placeholder="Enter Movie Genre" name='movieGenre'>
+        <select name="movieGenre">
+          <option value="" disabled selected>Select Movie Genre</option>
+          <option value="action">Action</option>
+          <option value="adventure">Adventure</option>
+          <option value="comedy">Comedy</option>
+          <option value="crime">Crime</option>
+          <option value="drama">Drama</option>
+
+          <option value="horror">Horror</option>
+          <option value="thriller">Thriller</option>
+          <option value="science fiction">Science Fiction</option>
+          <option value="mystery">Mystery</option>
+          <option value="documentary">Documentary</option>
+        </select>
+        <!-- <input type="text" placeholder="Enter Movie Genre" name='movieGenre'> -->
         <input type="submit">
     </form>
 <br>
@@ -35,6 +49,26 @@
     <option value="newest" disabled>Newest</option>
     <option value="title">Title</option>
     <option value="genre">Genre</option>
+  </select>
+  <!-- <br><br> -->
+  <!-- <input type="submit" value="Sort"> -->
+</form>
+
+<form action="" method = ''>
+  <label for="genres">Filter movies by genre:</label>
+  <select name="genres" id="genreID" multiple>
+    <option value="" disabled selected>Choose here</option>
+    <option value="action">Action</option>
+    <option value="adventure">Adventure</option>
+    <option value="comedy">Comedy</option>
+    <option value="crime">Crime</option>
+    <option value="drama">Drama</option>
+
+    <option value="horror">Horror</option>
+    <option value="thriller">Thriller</option>
+    <option value="science fiction">Science Fiction</option>
+    <option value="mystery">Mystery</option>
+    <option value="documentary">Documentary</option>
   </select>
   <!-- <br><br> -->
   <!-- <input type="submit" value="Sort"> -->
@@ -54,7 +88,7 @@
 
 
 
-    <a href="/logout">Logout</a>
+    <a id="logout" href="/logout">Logout</a>
 
 
 
