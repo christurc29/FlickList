@@ -49,7 +49,8 @@ async function markComplete(){
         })
         const data = await response.json()
         console.log(data)
-        location.reload()
+        // location.reload()
+        toggleCompletedStyle(this.parentNode)
     }catch(err){
         console.log(err)
     }
@@ -67,10 +68,22 @@ async function markIncomplete(){
         })
         const data = await response.json()
         console.log(data)
-        location.reload()
+        // location.reload()
+        toggleCompletedStyle(this.parentNode)
     }catch(err){
         console.log(err)
     }
+}
+
+function toggleCompletedStyle(listItem) {
+    Array.from(listItem.children, (span, index) => {
+        if (index !== listItem.children.length - 1) {
+            const classes = span.classList
+            classes.contains('not')
+                ? (classes.remove('not'), classes.add('completed'))
+                : (classes.remove('completed'), classes.add('not'))
+        }
+    })
 }
 
 function maintainListPreference() {
