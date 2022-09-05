@@ -60,8 +60,8 @@
 <ul>
   <% todos.forEach( el => { %>
           <li class='todoItem' data-id='<%=el._id%>'>
-            <span class='pointer <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-            <span class='pointer <%= el.completed === true ? 'completed' : 'not'%>'><%= el.genre %></span>
+            <span class='pointer details <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+            <span class='pointer details <%= el.completed === true ? 'completed' : 'not'%>'><%= el.genre %></span>
             <span class='pointer del'><i class="fa fa-trash-o" style="font-size:36px"></i></span>
           </li>
   <% }) %>

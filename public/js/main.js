@@ -4,19 +4,14 @@ const filterInput = document.querySelector('#filterID').addEventListener('input'
 const logoutBtn = document.querySelector('#logout').addEventListener('click', removeListPreference)
 
 const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const movieDetails = document.querySelectorAll('.details')
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
 })
 
-Array.from(todoItem).forEach((el)=>{
-    el.addEventListener('click', markComplete)
-})
-
-Array.from(todoComplete).forEach((el)=>{
-    el.addEventListener('click', markIncomplete)
+Array.from(movieDetails).forEach((el)=>{
+    el.addEventListener('click', toggleCompleted)
 })
 
 async function deleteTodo(){
@@ -37,38 +32,20 @@ async function deleteTodo(){
     }
 }
 
-async function markComplete(){
+async function toggleCompleted(e) {
     const todoId = this.parentNode.dataset.id
+    const completed = e.target.className.includes('completed')
     try{
-        const response = await fetch('todos/markComplete', {
+        const response = await fetch('todos/toggleCompleted', {
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'todoIdFromJSFile': todoId,
+                completed
             })
         })
         const data = await response.json()
         console.log(data)
-        // location.reload()
-        toggleCompletedStyle(this.parentNode)
-    }catch(err){
-        console.log(err)
-    }
-}
-
-async function markIncomplete(){
-    const todoId = this.parentNode.dataset.id
-    try{
-        const response = await fetch('todos/markIncomplete', {
-            method: 'put',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'todoIdFromJSFile': todoId
-            })
-        })
-        const data = await response.json()
-        console.log(data)
-        // location.reload()
         toggleCompletedStyle(this.parentNode)
     }catch(err){
         console.log(err)
