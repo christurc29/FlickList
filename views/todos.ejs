@@ -22,6 +22,9 @@
         <input type="text" placeholder="Enter Movie Genre" name='movieGenre'>
         <input type="submit">
     </form>
+    <% if (message) { %>
+      <div id = alert class="alert alert-info"><%= message %></div>
+    <% } %>
 <br>
 
 <span id="error"></span>
