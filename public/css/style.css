@@ -222,7 +222,7 @@ h4{
   color: #BF1E47;
   box-shadow: 0 0 20px 0 rgba(239, 239, 240, 0.2), 0 5px 5px 0 rgba(239, 239, 240, 0.24);
 }
-ul{
+#watchList{
   height: auto;
   width:80%;
   display: flex;
@@ -236,7 +236,7 @@ ul{
   color: #384047;
   box-shadow: 0 0 20px 0 rgba(239, 239, 240, 0.2), 0 5px 5px 0 rgba(239, 239, 240, 0.24);
 }
-li{
+#watchList li{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -257,12 +257,12 @@ li{
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   margin-bottom: 30px;
 }
-li:first-child{
+#watchList li:first-child{
   /* color:#BF1E47; */
   text-decoration: underline;
   margin: 20px 0;
 }
-li span{
+#watchList li span{
   text-decoration: none;
 }
 .tableHeader{

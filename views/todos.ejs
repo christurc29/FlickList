@@ -57,7 +57,7 @@
   <span class="tableHeader">Genre:</span>
   <span class='del'></span>
 </div>
-<ul>
+<ul id="watchList">
   <% todos.forEach( el => { %>
           <li class='todoItem' data-id='<%=el._id%>' data-createdat='<%=el.createdDate%>'>
             <span class='pointer details <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
