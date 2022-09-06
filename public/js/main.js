@@ -47,6 +47,7 @@ async function toggleCompleted(e) {
         const data = await response.json()
         console.log(data)
         toggleCompletedStyle(this.parentNode)
+        updateMoviesLeftDisplay()
     }catch(err){
         console.log(err)
     }
@@ -61,6 +62,19 @@ function toggleCompletedStyle(listItem) {
                 : (classes.remove('completed'), classes.add('not'))
         }
     })
+}
+
+function updateMoviesLeftDisplay() {
+    const h2 = document.querySelector('h2')
+    const moviesLeft = document.querySelectorAll('.not').length / 2
+    h2.innerText = h2.innerText
+        .split(' ')
+        .slice(0, 2)
+        .concat(
+            moviesLeft,
+            h2.innerText.split(' ').slice(3)
+        )
+        .join(' ')
 }
 
 function maintainListPreference() {
