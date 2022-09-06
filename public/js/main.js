@@ -86,23 +86,28 @@ function displaySortedMovies(e) {
     const domFragment = document.createDocumentFragment()
     const movieList = document.querySelector('ul')
     const movies = Array.from(document.querySelectorAll('.todoItem'))
-    movies
-        .sort((a, b) => {
-            if (sortedBy === 'title' || sortedBy === 'genre') {
-                const option = sortedBy === 'title' ? 0 : 1
-                const c = a.children[option].innerText,
-                      d = b.children[option].innerText
-                return c.localeCompare(d);
-            } else {
-                return sortedBy === 'oldest'
-                    ? new Date(a.dataset.createdat) - new Date(b.dataset.createdat)
-                    : new Date(b.dataset.createdat) - new Date(a.dataset.createdat)
-            }
-        })
+    sortMovies(movies, sortedBy)
         .forEach(movie => {
             domFragment.appendChild(movie)
         })
     movieList.appendChild(domFragment)
+}
+
+function sortMovies(list, criteria) {
+    return list
+        .slice()
+        .sort((a, b) => {
+            if (criteria === 'title' || criteria === 'genre') {
+                return criteria === 'title'
+                    ? a.children[0].innerText.localeCompare(b.children[0].innerText)
+                    : a.children[1].innerText.localeCompare(b.children[1].innerText)
+                        || a.children[0].innerText.localeCompare(b.children[0].innerText)
+            } else {
+                return criteria === 'oldest'
+                    ? new Date(a.dataset.createdat) - new Date(b.dataset.createdat)
+                    : new Date(b.dataset.createdat) - new Date(a.dataset.createdat)
+            }
+        })
 }
 
 function filterListByGenre(e) {
