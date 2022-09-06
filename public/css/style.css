@@ -269,6 +269,8 @@ h4 {
 	color: red;
 }
 
-[hidden] {
-	display: none;
+
+[hidden]{
+  display: none !important;
 }
+
