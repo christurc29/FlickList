@@ -32,6 +32,7 @@ async function deleteTodo(){
     }
 }
 
+
 async function toggleCompleted(e) {
     const todoId = this.parentNode.dataset.id
     const completed = e.target.className.includes('completed')
@@ -128,9 +129,8 @@ function filterListByGenre(e) {
     const filterText = e.target.value.toLowerCase().trim()
     window.localStorage.setItem('filterPreference', filterText)
     const movies = Array.from(document.querySelectorAll('.todoItem'))
-    movies
-        .map(movie => {
-            const genre = movie.children[1].innerText.toLowerCase()
+    movies.map(movie => {
+            const genre = movie.children[2].innerText.toLowerCase()
             genre.includes(filterText)
                 ? movie.removeAttribute('hidden')
                 : movie.setAttribute('hidden', '')
@@ -139,5 +139,84 @@ function filterListByGenre(e) {
 
 function removeListPreference() {
     localStorage.clear()
+}
+
+
+// TEST STUFF
+
+const infoBtn = document.querySelectorAll('.info')
+
+Array.from(infoBtn).forEach((el)=>{
+    el.addEventListener('click', getTitle)
+})
+
+
+async function getMovieDetails(movieTitle){
+    const movie = movieTitle
+    try{
+        const response = await fetch(`https://www.omdbapi.com/?apikey=6aa0401f&t=${movieTitle}`)
+        const data = await response.json()
+        if(data){
+            document.getElementById('movieImage').src = data.Poster
+            document.getElementById('movieTitle').innerText = data.Title
+            document.getElementById('movieDescrip').innerText= data.Plot
+            document.getElementById('movieGenre').innerText = data.Genre
+            // document.getElementById('movieYear').innerText = data.Year
+            document.getElementById('movieRTRating').innerText = data.Ratings[1].Value
+            console.log(data)
+        }
+        //location.reload()
+    }catch(err){
+        console.log(err)
+    }
+}
+
+async function getTitle(){
+    const todoId = this.parentNode.dataset.id
+    try{
+        const response = await fetch(`movie/${todoId}`)
+        const data = await response.json()
+        console.log(data)
+        let movieTitle = data.todo
+         getMovieDetails(movieTitle)
+
+    
+        //location.reload()
+    }catch(err){
+        console.log(err)
+    }
+
+}
+
+
+
+//To open popup with movie details
+let popup = document.getElementById('popup');
+
+function openPopup(){
+    popup.classList.add('open-popup');
+    // body.classList.add('is-blurred')
+    document.getElementById('header').classList.add('is-blurred');
+    document.getElementById('form').classList.add('is-blurred');
+    document.getElementById('watchList').classList.add('is-blurred')
+    document.getElementById('formSort').classList.add('is-blurred')
+    document.getElementById('moviesToWatchHeader').classList.add('is-blurred')
+    document.getElementById('moviesToWatchHeader').classList.add('is-blurred')
+    document.getElementById('homeButton').classList.add('is-blurred')
+    document.getElementById('logoutButton').classList.add('is-blurred')
+
+}
+
+function closePopup(){
+    popup.classList.remove('open-popup')
+    document.getElementById('header').classList.remove('is-blurred');
+    document.getElementById('form').classList.remove('is-blurred');
+    document.getElementById('watchList').classList.remove('is-blurred')
+    document.getElementById('formSort').classList.remove('is-blurred')
+    document.getElementById('moviesToWatchHeader').classList.remove('is-blurred')
+    document.getElementById('moviesToWatchHeader').classList.remove('is-blurred')
+    document.getElementById('homeButton').classList.remove('is-blurred')
+    document.getElementById('logoutButton').classList.remove('is-blurred')
+    // body.classList.remove('is-blurred')
 }
 

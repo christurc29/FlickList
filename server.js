@@ -9,6 +9,9 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
+const movieRoutes = require('./routes/movies')
+const { ObjectId } = require('mongodb')
+
 
 require('dotenv').config({path: './config/.env'})
 
@@ -40,7 +43,22 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
- 
+app.use('/movie', movieRoutes)
+
+//Test get by ID
+// const Todo = require('./models/Todo')
+
+// app.get('/movie/:id', function (req, res) {
+//   Todo.findById(req.params.id)
+//   .then(movieFound => {
+//     if(!movieFound) { return res.status(404).end();}
+//     return res.status(200).json(movieFound)
+//   })
+//   .catch(err => next(err))
+// })
+
+
+
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    

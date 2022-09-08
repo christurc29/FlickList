@@ -9,15 +9,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <div class="header">
+  <br>
+  <div id="homeButton">
+    <a class="home button" href="/">Home</a>
+  </div>
+  
+  <div class="header" id="header">
     <h3 id="todoHeader">FlickList</h3>
     <img id="todoIMG" src="./popcorn.png" alt="popcorn movie ticket">
   </div>
+
+  <div id = "moviesToWatchHeader">
     <h4>Movies to Watch</h4>
 
     <h2><%= user.userName %> has <%= left %> movie(s) left to watch.</h2>
+  </div>
+    
 
-    <form action="/todos/createTodo" method='POST'>
+    <form action="/todos/createTodo" method='POST' id="form">
         <input type="text" placeholder="Enter Movie" name='todoItem'>
         <input type="text" placeholder="Enter Movie Genre" name='movieGenre'>
         <input type="submit">
@@ -27,10 +36,8 @@
     <% } %>
 <br>
 
-<span id="error"></span>
 
-
-<form action="" method = ''>
+<form action="" method = '' id="formSort">
   <label for="sort">Sort movies by:</label>
   <select name="sort" id="sortID">
     <option value="oldest" selected>Oldest</option>
@@ -55,25 +62,40 @@
   <br><br>
   <input type="submit" value="Sort">
 </form> -->
-<div id="titles">
+<!-- <div id="titles">
   <span class="tableHeader">Title:</span>
   <span class="tableHeader">Genre:</span>
-  <span class='del'></span>
-</div>
-<ul id="watchList">
-  <% todos.forEach( el => { %>
-          <li class='todoItem' data-id='<%=el._id%>' data-createdat='<%=el.createdDate%>'>
-            <span class='pointer details <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-            <span class='pointer details <%= el.completed === true ? 'completed' : 'not'%>'><%= el.genre %></span>
-            <span class='pointer del'><i class="fa fa-trash-o" style="font-size:36px"></i></span>
-          </li>
-  <% }) %>
-  </ul>
-
-    <a id="logout" href="/logout">Logout</a>
-
+</div> -->
+  <ul id="watchList">
+    <% todos.forEach( el => { %>
+            <li class='todoItem' data-id='<%=el._id%>' data-createdat='<%=el.createdDate%>'>
+              <span class="pointer info"><i onclick="openPopup()" class="fa fa-info-circle" aria-hidden="true"></i></span>
+              <span class='pointer details <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+              <span class='pointer details <%= el.completed === true ? 'completed' : 'not'%>'><%= el.genre %></span>
+              <span class='pointer del'><i class="fa fa-trash-o"></i></span>
+            </li>
+    <% }) %>
+    </ul>
+    
+    <!-- Movie Description Popup-->
+    <div class="popup" id="popup">
+      <img id="movieImage" src="" alt="Poster for movie">
+      <h2 id="movieTitle"></h2>
+      <span id="movieDetailLabel">Description:</span><p id ="movieDescrip">Movie Description Here</p>
+      <span id="movieDetailLabel">Genre:</span><p id="movieGenre"></p>
+      <!-- <span id="movieDetailLabel">Year:</span><p id="movieYear"></p> -->
+      <span id="movieDetailLabel">Rotten Tomato Rating:</span><p id="movieRTRating"></p>
+      <button type="button" onclick="closePopup()">Close</button>
+    </div>
+    <br>
+    <div id="logoutButton">
+      <a id="logout" href="/logout">Logout</a>
+    </div>
+    
+    
 
 
     <script src="js/main.js"></script>
+  
 </body>
 </html>

@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const Todo = require('../models/Todo');
 
 module.exports = {
@@ -21,8 +22,10 @@ module.exports = {
 	},
 	createTodo: async (req, res) => {
 		try {
+			
 			const query = req.body.todoItem;
-			const duplicate = await Todo.findOne({ todo: query });
+			const duplicate = await Todo.findOne({ $and: [{todo: query}, {userId: req.user.id}]})
+
 			if (duplicate) {
 				console.log('This has already been saved.');
 				req.flash('message', 'You already added this movie.');
@@ -75,4 +78,5 @@ module.exports = {
 			console.log(err);
 		}
 	},
-};
+
+}
