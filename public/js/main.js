@@ -67,7 +67,7 @@ function toggleCompletedStyle(listItem) {
 
 function updateMoviesLeftDisplay() {
     const h2 = document.querySelector('h2')
-    const moviesLeft = document.querySelectorAll('.not').length / 2
+    const moviesLeft = document.querySelectorAll('.details.not').length / 2
     h2.innerText = h2.innerText
         .split(' ')
         .slice(0, 2)
@@ -114,9 +114,9 @@ function sortMovies(list, criteria) {
         .sort((a, b) => {
             if (criteria === 'title' || criteria === 'genre') {
                 return criteria === 'title'
-                    ? a.children[0].innerText.localeCompare(b.children[0].innerText)
-                    : a.children[1].innerText.localeCompare(b.children[1].innerText)
-                        || a.children[0].innerText.localeCompare(b.children[0].innerText)
+                    ? a.children[1].innerText.localeCompare(b.children[1].innerText)
+                    : a.children[2].innerText.localeCompare(b.children[2].innerText)
+                        || a.children[1].innerText.localeCompare(b.children[1].innerText)
             } else {
                 return criteria === 'oldest'
                     ? new Date(a.dataset.createdat) - new Date(b.dataset.createdat)
@@ -180,7 +180,7 @@ async function getTitle(){
         let movieTitle = data.todo
          getMovieDetails(movieTitle)
 
-    
+
         //location.reload()
     }catch(err){
         console.log(err)
