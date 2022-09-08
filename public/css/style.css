@@ -428,3 +428,7 @@ span.pointer.del:hover {
 a.homeLinks:hover{
 	cursor: pointer;
 }
+
+#inputBut {
+	text-align: center;
+}

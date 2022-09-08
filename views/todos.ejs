@@ -29,7 +29,8 @@
     <form action="/todos/createTodo" method='POST' id="form">
         <input type="text" placeholder="Enter Movie" name='todoItem'>
         <input type="text" placeholder="Enter Movie Genre" name='movieGenre'>
-        <input type="submit">
+        <div id="inputBut"><input type="submit"></div>
+        
     </form>
     <% if (message) { %>
       <div id = alert class="alert alert-info"><%= message %></div>
