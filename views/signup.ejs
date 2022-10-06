@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlickList-Sign Up</title>
-    <link href="./css/style.css" rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap"
+      rel="stylesheet"
+    />
 
-    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-</head>
-<body>
-    <br>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,300"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <br />
     <div id="homeButton">
-        <a class="home button" href="/">Home</a>
+      <a class="home button" href="/">Home</a>
     </div>
-
 
     <div id="signUp">
-        <div class="header">
-            <h1>FlickList</h1>
-            <img src="./popcorn.png" alt="popcorn movie ticket">
-        </div>
-        <% if (locals.messages.errors) { %>
-            <% messages.errors.forEach( el => { %>
-                <div class="alert alert-danger"><%= el.msg %></div>
-            <% }) %>    
-        <% } %>
-        <form action="/signup" method="POST">
-            <h2>Sign Up</h2>
-            <label for="name">Username:</label>
-            <input type="text" name="userName" id="name">
+      <div class="header-image" style="margin-top: 3rem">
+        <img src="./popcorn.png" alt="popcorn movie ticket" />
+      </div>
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %>
+      <form action="/signup" method="POST">
+        <h2>Sign Up</h2>
+        <label for="name">Username:</label>
+        <input type="text" name="userName" id="name" />
 
-            <label for="mail">Email:</label>
-            <input type="email" name="email" id="mail">
+        <label for="mail">Email:</label>
+        <input type="email" name="email" id="mail" />
 
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
 
-            <label for="password">Confirm Password:</label>
-            <input type="password" name="confirmPassword" id="confirmPassword">
-            <button type="submit">Sign Up</button>
-        </form>
+        <label for="password">Confirm Password:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" />
+        <button type="submit">Sign Up</button>
+      </form>
     </div>
-    
-</body>
+  </body>
 </html>
