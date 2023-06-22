@@ -382,8 +382,8 @@ a.home:hover {
   left:50%;
   width:600px;  /* adjust as per your needs */
   height:600px;   /* adjust as per your needs */
-  margin-left:-200px;   /* negative half of width above */
-  margin-top:-200px;   /* negative half of height above */
+  margin-left:-300px;   /* negative half of width above */
+  margin-top:-300px;   /* negative half of height above */
   transform: translate(-50%, -50%) scale(1);
 }
 
