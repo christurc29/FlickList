@@ -384,7 +384,7 @@ a.home:hover {
   height:600px;   /* adjust as per your needs */
   margin-left:-300px;   /* negative half of width above */
   margin-top:-300px;   /* negative half of height above */
-  transform: translate(-50%, -50%) scale(1);
+  /* transform: translate(-50%, -50%) scale(1); */
 }
 
 .popup button {
