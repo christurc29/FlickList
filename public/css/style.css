@@ -378,13 +378,13 @@ a.home:hover {
   visibility: visible;
   /* top: 70%; */
   position:fixed;
-  top:50%;
-  left:50%;
+  top:70%;
+  left:70%;
   width:600px;  /* adjust as per your needs */
   height:600px;   /* adjust as per your needs */
   margin-left:-300px;   /* negative half of width above */
   margin-top:-300px;   /* negative half of height above */
-  /* transform: translate(-50%, -50%) scale(1); */
+  transform: translate(-50%, -50%) scale(1); 
 }
 
 .popup button {
